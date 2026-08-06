@@ -23,7 +23,11 @@ const path = require("path");
 
 // ==================== 环境变量读取 ====================
 const API_KEY = process.env.HAODANKU_APIKEY || "";
-const PID = process.env.PID || "";
+// 各平台推广位 PID（从环境变量读取，用于生成带返利参数的链接）
+// 优先级：平台专属 PID > 通用 PID
+const PID_TAOBAO = process.env.PID_TAOBAO || process.env.PID || "";
+const PID_PDD = process.env.PID_PDD || process.env.PID || "";
+const PID_VIP = process.env.PID_VIP || process.env.PID || "";
 
 /**
  * 格式化当前日期时间，用于页面底部展示更新时间
@@ -116,11 +120,20 @@ function generateProductCard(item, index) {
   const shopType = item.shop_type || item.platform || ""; // 1=淘宝, 2=拼多多, 3=唯品会
   const shopLabel = { 1: "淘宝", 2: "拼多多", 3: "唯品会" }[shopType] || "精选";
 
-  // 构造推广链接 —— 如果配置了 PID，在链接中追加参数
+  // 根据商品平台选择对应的推广位 PID
+  // shop_type 约定：1=淘宝, 2=拼多多, 3=唯品会
+  const pidMap = {
+    "1": PID_TAOBAO,
+    "2": PID_PDD,
+    "3": PID_VIP
+  };
+  const selectedPid = pidMap[shopType] || "";
+
+  // 构造推广链接 —— 如果该平台配置了 PID，在链接中追加参数
   let promUrl = couponLink;
-  if (PID && couponLink) {
+  if (selectedPid && couponLink) {
     const separator = couponLink.includes("?") ? "&" : "?";
-    promUrl = `${couponLink}${separator}pid=${encodeURIComponent(PID)}`;
+    promUrl = `${couponLink}${separator}pid=${encodeURIComponent(selectedPid)}`;
   }
 
   // 格式化销量（万/亿单位）
