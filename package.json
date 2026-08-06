@@ -1,0 +1,21 @@
+{
+  "name": "rebate-seo-generator",
+  "version": "1.0.0",
+  "description": "返利网站自动SEO截流系统 - 自动采集高佣商品并生成SEO友好静态页面，部署于GitHub Pages",
+  "main": "generate.js",
+  "scripts": {
+    "generate": "node generate.js"
+  },
+  "dependencies": {
+    "libsodium-wrappers": "^0.8.4",
+    "node-fetch": "^2.6.7"
+  },
+  "keywords": [
+    "返利",
+    "SEO",
+    "优惠券",
+    "高佣",
+    "好单库"
+  ],
+  "license": "MIT"
+}
