@@ -28,7 +28,10 @@
 | 密钥名 | 说明 | 获取方式 |
 |--------|------|----------|
 | `HAODANKU_APIKEY` | 好单库 API 密钥 | 在 [好单库官网](https://www.haodanku.com/) 注册获取 |
-| `PID` | 你的推广位 ID | 在对应平台（淘宝联盟/多多进宝等）获取 |
+| `PID_TAOBAO` | 淘宝联盟推广位 ID | 在 [淘宝联盟](https://pub.alimama.com) 获取，格式如 `mm_数字_数字_数字` |
+| `PID_PDD` | 拼多多推广位 ID | 在 [多多进宝](https://jinbao.pinduoduo.com) 获取，格式如 `数字_数字` |
+| `PID_VIP` | 唯品会推广位 ID | 在 [唯品会联盟](https://union.vip.com) 获取 |
+| `PID` | 通用推广位 ID（可选） | 只提供一个平台时使用，旧版兼容 |
 
 ### 3. 启用 GitHub Pages
 
