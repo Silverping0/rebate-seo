@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -6,460 +6,1154 @@
   <meta name="description" content="今日限时秒杀，大额隐藏优惠券，淘宝/拼多多/唯品会内部高佣优惠券汇总，每日更新精选超值商品。">
   <meta name="keywords" content="今日限时秒杀,大额隐藏优惠券,淘宝优惠券,拼多多优惠券,唯品会优惠券,高佣返利,内部优惠券">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://Silverping0.github.io/rebate-seo/">
   <meta property="og:title" content="今日限时秒杀 | 大额隐藏优惠券 - 每日精选">
   <meta property="og:description" content="今日限时秒杀，大额隐藏优惠券，淘宝/拼多多/唯品会内部高佣优惠券汇总，每日更新精选超值商品。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_CN">
   <title>今日限时秒杀 - 大额隐藏优惠券 | 每日更新</title>
   <style>
+    /* ===== 全局重置 ===== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: #f5f6fa; color: #333; line-height: 1.6; }
-    .top-bar { background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: #fff; text-align: center; padding: 6px 0; font-size: 13px; letter-spacing: 1px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: #f5f6fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ===== 顶部导航条 ===== */
+    .top-bar {
+      background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+      color: #fff;
+      text-align: center;
+      padding: 6px 0;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
     .top-bar span { display: inline-block; animation: pulse 2s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
-    header { background: linear-gradient(135deg, #ff4757 0%, #ff6b81 50%, #ffa502 100%); color: #fff; padding: 40px 20px 50px; text-align: center; position: relative; overflow: hidden; }
-    header::before { content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%); animation: rotate 20s linear infinite; }
+
+    /* ===== 头部 ===== */
+    header {
+      background: linear-gradient(135deg, #ff4757 0%, #ff6b81 50%, #ffa502 100%);
+      color: #fff;
+      padding: 40px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      animation: rotate 20s linear infinite;
+    }
     @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    header h1 { font-size: 2.2em; font-weight: 800; margin-bottom: 10px; position: relative; z-index: 1; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-    header p { font-size: 1.05em; opacity: 0.95; position: relative; z-index: 1; }
-    .header-stats { display: flex; justify-content: center; gap: 30px; margin-top: 20px; position: relative; z-index: 1; flex-wrap: wrap; }
+    header h1 {
+      font-size: 2.2em;
+      font-weight: 800;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    header p {
+      font-size: 1.05em;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+    .header-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+    }
     .header-stats .stat-item { text-align: center; }
-    .header-stats .stat-item .num { font-size: 1.6em; font-weight: 800; display: block; }
-    .header-stats .stat-item .label { font-size: 0.85em; opacity: 0.85; }
-    .container { max-width: 1200px; margin: -30px auto 30px; padding: 0 16px; position: relative; z-index: 2; }
-    .info-bar { background: #fff; border-radius: 12px; padding: 14px 20px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 14px; color: #666; }
+    .header-stats .stat-item .num {
+      font-size: 1.6em;
+      font-weight: 800;
+      display: block;
+    }
+    .header-stats .stat-item .label {
+      font-size: 0.85em;
+      opacity: 0.85;
+    }
+
+    /* ===== 主内容区域 ===== */
+    .container {
+      max-width: 1200px;
+      margin: -30px auto 30px;
+      padding: 0 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ===== 信息条 ===== */
+    .info-bar {
+      background: #fff;
+      border-radius: 12px;
+      padding: 14px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 14px;
+      color: #666;
+    }
     .info-bar .update-time { color: #ff4757; font-weight: 600; }
-    .info-bar .count-badge { background: #ff4757; color: #fff; padding: 2px 12px; border-radius: 20px; font-weight: 600; font-size: 13px; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    .product-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; position: relative; }
-    .product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-    .product-badge { position: absolute; top: 10px; left: 10px; background: #ff4757; color: #fff; font-size: 11px; padding: 2px 10px; border-radius: 4px; z-index: 2; font-weight: 600; }
-    .product-discount-tag { position: absolute; top: 10px; right: 10px; background: rgba(255, 71, 87, 0.9); color: #fff; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 4px; z-index: 2; }
-    .product-img { width: 100%; height: 200px; object-fit: cover; display: block; background: #f0f0f0; }
+    .info-bar .count-badge {
+      background: #ff4757;
+      color: #fff;
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    /* ===== 商品网格 ===== */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* ===== 商品卡片 ===== */
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ff4757;
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 10px;
+      border-radius: 4px;
+      z-index: 2;
+      font-weight: 600;
+    }
+
+    .product-discount-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 71, 87, 0.9);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      background: #f0f0f0;
+    }
+
     .product-info { padding: 14px 16px 16px; }
-    .product-title { font-size: 14px; font-weight: 600; line-height: 1.5; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 42px; }
-    .product-title a { color: #333; text-decoration: none; }
+
+    .product-title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 42px;
+    }
+    .product-title a {
+      color: #333;
+      text-decoration: none;
+    }
     .product-title a:hover { color: #ff4757; }
-    .product-meta { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
-    .product-price { color: #ff4757; font-weight: 800; }
+
+    .product-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .product-price {
+      color: #ff4757;
+      font-weight: 800;
+    }
     .price-symbol { font-size: 14px; }
     .price-value { font-size: 22px; }
-    .product-original-price { color: #999; font-size: 12px; text-decoration: line-through; }
-    .product-sales { color: #999; font-size: 12px; margin-left: auto; }
-    .product-extra { display: flex; gap: 8px; margin-bottom: 12px; }
-    .product-commission { background: #fff0f0; color: #ff4757; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
-    .product-coupon { background: #fff7e6; color: #fa8c16; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
-    .copy-btn { width: 100%; padding: 10px; border: none; border-radius: 8px; background: linear-gradient(135deg, #ff4757, #ff6b81); color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity 0.2s, transform 0.1s; }
+    .product-original-price {
+      color: #999;
+      font-size: 12px;
+      text-decoration: line-through;
+    }
+    .product-sales {
+      color: #999;
+      font-size: 12px;
+      margin-left: auto;
+    }
+
+    .product-extra {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .product-commission {
+      background: #fff0f0;
+      color: #ff4757;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .product-coupon {
+      background: #fff7e6;
+      color: #fa8c16;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* ===== 商品操作区 ===== */
+    .product-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .product-actions .copy-btn {
+      width: auto;
+      flex: 1;
+      padding: 10px 6px;
+    }
+    .buy-btn {
+      flex: 1.2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 6px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #ffa502, #ff4757);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .buy-btn:hover { opacity: 0.9; }
+    .buy-btn:active { transform: scale(0.97); }
+
+    /* ===== 复制按钮 ===== */
+    .copy-btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #ff4757, #ff6b81);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+    }
     .copy-btn:hover { opacity: 0.9; }
     .copy-btn:active { transform: scale(0.97); }
-    .copy-btn.copied { background: linear-gradient(135deg, #2ed573, #7bed9f); }
-    footer { text-align: center; padding: 30px 20px; color: #999; font-size: 13px; border-top: 1px solid #eee; margin-top: 10px; }
+    .copy-btn.copied {
+      background: linear-gradient(135deg, #2ed573, #7bed9f);
+    }
+
+    /* ===== 信任标识 ===== */
+    .trust-bar {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      font-size: 13px;
+      color: #666;
+    }
+    .trust-bar span { color: #2ed573; font-weight: 600; }
+
+    /* ===== 分享条 ===== */
+    .share-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      font-size: 14px;
+      color: #666;
+    }
+    .share-bar strong { color: #333; }
+    .share-btn {
+      border: 1px solid #ffd0d4;
+      background: #fff0f0;
+      color: #ff4757;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .share-btn:hover { background: #ff4757; color: #fff; }
+
+    /* ===== 使用教程 ===== */
+    .steps-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 24px 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .steps-section h2 { font-size: 18px; margin-bottom: 14px; color: #333; }
+    .steps-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .step-item {
+      background: #f8f9fb;
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .step-item .step-num {
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      margin: 0 auto 8px;
+      border-radius: 50%;
+      background: #ff4757;
+      color: #fff;
+      font-weight: 700;
+    }
+    .step-item p { font-size: 13px; color: #666; }
+
+    /* ===== 底部吸底条 ===== */
+    .sticky-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+    }
+    .sticky-bar .sticky-title { font-size: 14px; font-weight: 700; color: #ff4757; }
+    .sticky-bar .sticky-sub { font-size: 12px; color: #999; }
+    .sticky-btn {
+      background: linear-gradient(135deg, #ff4757, #ff6b81);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 22px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ===== 网站底部 ===== */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #999;
+      font-size: 13px;
+      border-top: 1px solid #eee;
+      margin-top: 10px;
+    }
     footer a { color: #ff4757; text-decoration: none; }
-    .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(80px); background: rgba(0,0,0,0.8); color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 14px; opacity: 0; transition: all 0.3s; z-index: 999; pointer-events: none; }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ===== Toast 提示 ===== */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      opacity: 0;
+      transition: all 0.3s;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ===== JSON-LD 结构化数据（隐藏） ===== */
     .hidden { display: none; }
-    @media (max-width: 640px) { header { padding: 30px 16px 40px; } header h1 { font-size: 1.5em; } .container { margin-top: -25px; } .product-grid { grid-template-columns: 1fr; } .header-stats { gap: 16px; } }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 640px) {
+      body { padding-bottom: 72px; }
+      header { padding: 30px 16px 40px; }
+      header h1 { font-size: 1.5em; }
+      .container { margin-top: -25px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .header-stats { gap: 16px; }
+    }
+    @media (min-width: 641px) {
+      .sticky-bar { display: none; }
+    }
   </style>
 </head>
 <body>
-  <div class="top-bar"><span>⚡ 限时秒杀进行中 · 优惠券数量有限，先到先得！</span></div>
+
+  <!-- ===== 顶部通知条 ===== -->
+  <div class="top-bar">
+    <span>⚡ 限时秒杀进行中 · 优惠券数量有限，先到先得！</span>
+  </div>
+
+  <!-- ===== 页面头部 ===== -->
   <header>
     <h1>🛒 今日限时秒杀 · 大额隐藏优惠券</h1>
     <p>淘宝 / 拼多多 / 唯品会 · 内部高佣优惠券每日精选 · 24小时自动更新</p>
     <div class="header-stats">
-      <div class="stat-item"><span class="num">20</span><span class="label">今日精选</span></div>
-      <div class="stat-item"><span class="num">2026-08-03</span><span class="label">活动截止</span></div>
-      <div class="stat-item"><span class="num">自动</span><span class="label">每日更新</span></div>
+      <div class="stat-item">
+        <span class="num">20</span>
+        <span class="label">今日精选</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">5</span>
+        <span class="label">超高佣商品</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">2026-08-09</span>
+        <span class="label">活动截止</span>
+      </div>
     </div>
   </header>
+
+  <!-- ===== 主要内容 ===== -->
   <div class="container">
+
+    <!-- 信息条 -->
     <div class="info-bar">
-      <span>📢 更新于 <span class="update-time">2026-07-31 09:39</span></span>
+      <span>📢 更新于 <span class="update-time">2026-08-06 18:48</span></span>
+      <span class="countdown" id="countdown">⏰ 距下次更新 --:--:--</span>
       <span class="count-badge">共 20 款超值商品</span>
     </div>
+
+    <!-- 信任标识 -->
+    <div class="trust-bar">
+      <span>✔ 限时秒杀</span>
+      <span>✔ 大额隐藏券</span>
+      <span>✔ 正品保障</span>
+      <span>✔ 自买省钱 · 分享赚钱</span>
+    </div>
+
+    <!-- 分享条 -->
+    <div class="share-bar">
+      <strong>💬 分享给好友，好友下单你赚佣金</strong>
+      <button class="share-btn" data-share="qq">QQ 分享</button>
+      <button class="share-btn" data-share="weibo">微博分享</button>
+      <button class="share-btn" data-share="copy">复制链接</button>
+    </div>
+
+    <!-- 商品网格 -->
     <div class="product-grid">
+      
           <article class="product-card">
             <div class="product-badge">淘宝</div>
             <div class="product-discount-tag">-70%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E5%A4%8F%E5%AD%A3%E5%86%B0%E4%B8%9D%E9%98%B2%E6%99%92%E8%A1%A3%20%E8%BD%BB%E8%96%84%E9%80%8F%E6%B0%94%20%E5%A4%A7%E9%A2%9D%E9%9A%90%E8%97%8F%E4%BC%98%E6%83%A0%E5%88%B8" alt="夏季冰丝防晒衣 轻薄透气 大额隐藏优惠券" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo1" alt="夏季冰丝防晒衣 轻薄透气 大额隐藏优惠券" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">夏季冰丝防晒衣 轻薄透气 大额隐藏优惠券</a></h3>
+              <h3 class="product-title">
+                <a href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">夏季冰丝防晒衣 轻薄透气 大额隐藏优惠券</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">29.9</span></span>
-                <span class="product-original-price">¥99</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">29.90</span>
+                </span>
+                <span class="product-original-price">¥99.00</span>
                 <span class="product-sales">已售 2.9万</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 50%</span>
-                <span class="product-coupon">券 ¥69.1</span>
+                <span class="product-commission">佣金 50.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="夏季冰丝防晒衣 轻薄透气 大额隐藏优惠券">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" data-title="夏季冰丝防晒衣 轻薄透气 大额隐藏优惠券">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">拼多多</div>
             <div class="product-discount-tag">-70%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E8%93%9D%E7%89%99%E8%80%B3%E6%9C%BA%E6%97%A0%E7%BA%BF%E5%85%A5%E8%80%B3%E5%BC%8F%20%E9%99%8D%E5%99%AA%E9%95%BF%E7%BB%AD%E8%88%AA%20%E9%99%90%E6%97%B6%E7%A7%92%E6%9D%80" alt="蓝牙耳机无线入耳式 降噪长续航 限时秒杀" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo2" alt="蓝牙耳机无线入耳式 降噪长续航 限时秒杀" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">蓝牙耳机无线入耳式 降噪长续航 限时秒杀</a></h3>
+              <h3 class="product-title">
+                <a href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">蓝牙耳机无线入耳式 降噪长续航 限时秒杀</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">59</span></span>
-                <span class="product-original-price">¥199</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">59.00</span>
+                </span>
+                <span class="product-original-price">¥199.00</span>
                 <span class="product-sales">已售 4.6万</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 45%</span>
-                <span class="product-coupon">券 ¥140</span>
+                <span class="product-commission">佣金 45.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="蓝牙耳机无线入耳式 降噪长续航 限时秒杀">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" data-title="蓝牙耳机无线入耳式 降噪长续航 限时秒杀">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">淘宝</div>
             <div class="product-discount-tag">-69%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E7%BA%AF%E6%A3%89T%E6%81%A4%E7%94%B7%E7%9F%AD%E8%A2%96%20%E5%A4%8F%E5%AD%A3%E6%96%B0%E6%AC%BE%20%E5%9C%86%E9%A2%86%E4%BC%91%E9%97%B2%E7%99%BE%E6%90%AD" alt="纯棉T恤男短袖 夏季新款 圆领休闲百搭" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo3" alt="纯棉T恤男短袖 夏季新款 圆领休闲百搭" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">纯棉T恤男短袖 夏季新款 圆领休闲百搭</a></h3>
+              <h3 class="product-title">
+                <a href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">纯棉T恤男短袖 夏季新款 圆领休闲百搭</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">39.9</span></span>
-                <span class="product-original-price">¥129</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">39.90</span>
+                </span>
+                <span class="product-original-price">¥129.00</span>
                 <span class="product-sales">已售 1.3万</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 40%</span>
-                <span class="product-coupon">券 ¥89.1</span>
+                <span class="product-commission">佣金 40.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="纯棉T恤男短袖 夏季新款 圆领休闲百搭">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" data-title="纯棉T恤男短袖 夏季新款 圆领休闲百搭">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">唯品会</div>
             <div class="product-discount-tag">-70%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E6%99%BA%E8%83%BD%E6%89%8B%E7%8E%AF%E8%BF%90%E5%8A%A8%E6%89%8B%E8%A1%A8%20%E5%BF%83%E7%8E%87%E7%9B%91%E6%B5%8B%20%E9%98%B2%E6%B0%B4%E5%A4%A7%E5%B1%8F" alt="智能手环运动手表 心率监测 防水大屏" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo4" alt="智能手环运动手表 心率监测 防水大屏" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">智能手环运动手表 心率监测 防水大屏</a></h3>
+              <h3 class="product-title">
+                <a href="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" target="_blank" rel="nofollow noopener">智能手环运动手表 心率监测 防水大屏</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">89</span></span>
-                <span class="product-original-price">¥299</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">89.00</span>
+                </span>
+                <span class="product-original-price">¥299.00</span>
                 <span class="product-sales">已售 9800</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 55%</span>
-                <span class="product-coupon">券 ¥210</span>
+                <span class="product-commission">佣金 55.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="智能手环运动手表 心率监测 防水大屏">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" data-title="智能手环运动手表 心率监测 防水大屏">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">拼多多</div>
             <div class="product-discount-tag">-66%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E5%85%A8%E9%BA%A6%E6%97%A0%E7%B3%96%E9%9D%A2%E5%8C%85%20%E4%BD%8E%E8%84%82%E4%BB%A3%E9%A4%90%20%E6%97%A9%E9%A4%90%E5%81%A5%E5%BA%B7%E9%9B%B6%E9%A3%9F" alt="全麦无糖面包 低脂代餐 早餐健康零食" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo5" alt="全麦无糖面包 低脂代餐 早餐健康零食" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">全麦无糖面包 低脂代餐 早餐健康零食</a></h3>
+              <h3 class="product-title">
+                <a href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">全麦无糖面包 低脂代餐 早餐健康零食</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">19.9</span></span>
-                <span class="product-original-price">¥59</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">19.90</span>
+                </span>
+                <span class="product-original-price">¥59.00</span>
                 <span class="product-sales">已售 5.2万</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 35%</span>
-                <span class="product-coupon">券 ¥39.1</span>
+                <span class="product-commission">佣金 35.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="全麦无糖面包 低脂代餐 早餐健康零食">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" data-title="全麦无糖面包 低脂代餐 早餐健康零食">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">淘宝</div>
             <div class="product-discount-tag">-70%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E8%A1%8C%E6%9D%8E%E7%AE%B1%E4%B8%87%E5%90%91%E8%BD%AE%20%E7%99%BB%E6%9C%BA%E7%AE%B1%20%E5%A4%A7%E5%AE%B9%E9%87%8F%E9%9D%99%E9%9F%B3%E6%8B%89%E6%9D%86%E7%AE%B1" alt="行李箱万向轮 登机箱 大容量静音拉杆箱" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo6" alt="行李箱万向轮 登机箱 大容量静音拉杆箱" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">行李箱万向轮 登机箱 大容量静音拉杆箱</a></h3>
+              <h3 class="product-title">
+                <a href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">行李箱万向轮 登机箱 大容量静音拉杆箱</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">139</span></span>
-                <span class="product-original-price">¥459</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">139.00</span>
+                </span>
+                <span class="product-original-price">¥459.00</span>
                 <span class="product-sales">已售 7800</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 42%</span>
-                <span class="product-coupon">券 ¥320</span>
+                <span class="product-commission">佣金 42.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="行李箱万向轮 登机箱 大容量静音拉杆箱">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" data-title="行李箱万向轮 登机箱 大容量静音拉杆箱">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">拼多多</div>
             <div class="product-discount-tag">-71%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E7%94%B5%E5%8A%A8%E7%89%99%E5%88%B7%E5%A3%B0%E6%B3%A2%E9%9C%87%E5%8A%A8%20%E6%88%90%E4%BA%BA%E8%BD%AF%E6%AF%9B%20%E6%99%BA%E8%83%BD%E5%AE%9A%E6%97%B6" alt="电动牙刷声波震动 成人软毛 智能定时" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo7" alt="电动牙刷声波震动 成人软毛 智能定时" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">电动牙刷声波震动 成人软毛 智能定时</a></h3>
+              <h3 class="product-title">
+                <a href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">电动牙刷声波震动 成人软毛 智能定时</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">69</span></span>
-                <span class="product-original-price">¥239</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">69.00</span>
+                </span>
+                <span class="product-original-price">¥239.00</span>
                 <span class="product-sales">已售 3.2万</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 48%</span>
-                <span class="product-coupon">券 ¥170</span>
+                <span class="product-commission">佣金 48.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="电动牙刷声波震动 成人软毛 智能定时">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" data-title="电动牙刷声波震动 成人软毛 智能定时">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">唯品会</div>
             <div class="product-discount-tag">-70%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E7%94%B7%E5%A3%AB%E8%BF%90%E5%8A%A8%E9%9E%8B%E8%B7%91%E6%AD%A5%E9%9E%8B%20%E8%BD%BB%E4%BE%BF%E9%80%8F%E6%B0%94%20%E7%BC%93%E9%9C%87%E8%80%90%E7%A3%A8" alt="男士运动鞋跑步鞋 轻便透气 缓震耐磨" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo8" alt="男士运动鞋跑步鞋 轻便透气 缓震耐磨" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">男士运动鞋跑步鞋 轻便透气 缓震耐磨</a></h3>
+              <h3 class="product-title">
+                <a href="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" target="_blank" rel="nofollow noopener">男士运动鞋跑步鞋 轻便透气 缓震耐磨</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">99</span></span>
-                <span class="product-original-price">¥329</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">99.00</span>
+                </span>
+                <span class="product-original-price">¥329.00</span>
                 <span class="product-sales">已售 1.6万</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 52%</span>
-                <span class="product-coupon">券 ¥230</span>
+                <span class="product-commission">佣金 52.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="男士运动鞋跑步鞋 轻便透气 缓震耐磨">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" data-title="男士运动鞋跑步鞋 轻便透气 缓震耐磨">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">淘宝</div>
             <div class="product-discount-tag">-64%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E5%AE%B6%E7%94%A8%E5%B0%8F%E5%9E%8B%E9%99%A4%E6%B9%BF%E6%9C%BA%20%E9%9D%99%E9%9F%B3%E6%8A%BD%E6%B9%BF%E5%99%A8%20%E5%8D%A7%E5%AE%A4%E4%B8%93%E7%94%A8" alt="家用小型除湿机 静音抽湿器 卧室专用" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo9" alt="家用小型除湿机 静音抽湿器 卧室专用" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">家用小型除湿机 静音抽湿器 卧室专用</a></h3>
+              <h3 class="product-title">
+                <a href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">家用小型除湿机 静音抽湿器 卧室专用</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">249</span></span>
-                <span class="product-original-price">¥699</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">249.00</span>
+                </span>
+                <span class="product-original-price">¥699.00</span>
                 <span class="product-sales">已售 4300</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 38%</span>
-                <span class="product-coupon">券 ¥450</span>
+                <span class="product-commission">佣金 38.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="家用小型除湿机 静音抽湿器 卧室专用">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" data-title="家用小型除湿机 静音抽湿器 卧室专用">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">拼多多</div>
             <div class="product-discount-tag">-71%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E6%99%BA%E8%83%BD%E4%BF%9D%E6%B8%A9%E6%9D%AF%20316%E4%B8%8D%E9%94%88%E9%92%A2%20%E6%98%BE%E6%B8%A9%E5%A4%A7%E5%AE%B9%E9%87%8F" alt="智能保温杯 316不锈钢 显温大容量" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo10" alt="智能保温杯 316不锈钢 显温大容量" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">智能保温杯 316不锈钢 显温大容量</a></h3>
+              <h3 class="product-title">
+                <a href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">智能保温杯 316不锈钢 显温大容量</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">49</span></span>
-                <span class="product-original-price">¥169</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">49.00</span>
+                </span>
+                <span class="product-original-price">¥169.00</span>
                 <span class="product-sales">已售 3.9万</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 36%</span>
-                <span class="product-coupon">券 ¥120</span>
+                <span class="product-commission">佣金 36.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="智能保温杯 316不锈钢 显温大容量">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" data-title="智能保温杯 316不锈钢 显温大容量">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">淘宝</div>
             <div class="product-discount-tag">-69%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E5%84%BF%E7%AB%A5%E7%8E%A9%E5%85%B7%E7%A7%AF%E6%9C%A8%E6%A1%8C%20%E5%A4%A7%E9%A2%97%E7%B2%92%E6%8B%BC%E8%A3%85%20%E5%AD%A6%E4%B9%A0%E7%9B%8A%E6%99%BA" alt="儿童玩具积木桌 大颗粒拼装 学习益智" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo11" alt="儿童玩具积木桌 大颗粒拼装 学习益智" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">儿童玩具积木桌 大颗粒拼装 学习益智</a></h3>
+              <h3 class="product-title">
+                <a href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">儿童玩具积木桌 大颗粒拼装 学习益智</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">79</span></span>
-                <span class="product-original-price">¥259</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">79.00</span>
+                </span>
+                <span class="product-original-price">¥259.00</span>
                 <span class="product-sales">已售 6700</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 44%</span>
-                <span class="product-coupon">券 ¥180</span>
+                <span class="product-commission">佣金 44.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="儿童玩具积木桌 大颗粒拼装 学习益智">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" data-title="儿童玩具积木桌 大颗粒拼装 学习益智">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">唯品会</div>
             <div class="product-discount-tag">-71%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E7%8E%BB%E5%B0%BF%E9%85%B8%E8%A1%A5%E6%B0%B4%E9%9D%A2%E8%86%9C%20%E4%BF%9D%E6%B9%BF%E7%B4%A7%E8%87%B4%20%E5%A5%B3%E6%8A%A4%E8%82%A4%E6%AD%A3%E5%93%81" alt="玻尿酸补水面膜 保湿紧致 女护肤正品" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo12" alt="玻尿酸补水面膜 保湿紧致 女护肤正品" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">玻尿酸补水面膜 保湿紧致 女护肤正品</a></h3>
+              <h3 class="product-title">
+                <a href="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" target="_blank" rel="nofollow noopener">玻尿酸补水面膜 保湿紧致 女护肤正品</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">35</span></span>
-                <span class="product-original-price">¥119</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">35.00</span>
+                </span>
+                <span class="product-original-price">¥119.00</span>
                 <span class="product-sales">已售 7.8万</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 60%</span>
-                <span class="product-coupon">券 ¥84</span>
+                <span class="product-commission">佣金 60.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="玻尿酸补水面膜 保湿紧致 女护肤正品">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" data-title="玻尿酸补水面膜 保湿紧致 女护肤正品">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">淘宝</div>
             <div class="product-discount-tag">-69%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E4%BE%BF%E6%90%BA%E6%A6%A8%E6%B1%81%E6%9C%BA%20%E8%BF%B7%E4%BD%A0%E6%9E%9C%E6%B1%81%E6%9D%AF%20%E5%85%85%E7%94%B5%E6%97%A0%E7%BA%BF" alt="便携榨汁机 迷你果汁杯 充电无线" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo13" alt="便携榨汁机 迷你果汁杯 充电无线" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">便携榨汁机 迷你果汁杯 充电无线</a></h3>
+              <h3 class="product-title">
+                <a href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">便携榨汁机 迷你果汁杯 充电无线</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">59</span></span>
-                <span class="product-original-price">¥189</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">59.00</span>
+                </span>
+                <span class="product-original-price">¥189.00</span>
                 <span class="product-sales">已售 2.1万</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 41%</span>
-                <span class="product-coupon">券 ¥130</span>
+                <span class="product-commission">佣金 41.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="便携榨汁机 迷你果汁杯 充电无线">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" data-title="便携榨汁机 迷你果汁杯 充电无线">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
+
           <article class="product-card">
             <div class="product-badge">拼多多</div>
             <div class="product-discount-tag">-67%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E7%8C%AB%E5%92%AA%E5%86%BB%E5%B9%B2%E9%9B%B6%E9%A3%9F%20%E9%B8%A1%E8%82%89%E5%91%B3%20%E5%AE%A0%E7%89%A9%E8%90%A5%E5%85%BB%E5%A2%9E%E8%82%A5" alt="猫咪冻干零食 鸡肉味 宠物营养增肥" loading="lazy">
+            <img class="product-img" src="https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo14" alt="猫咪冻干零食 鸡肉味 宠物营养增肥" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
             <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">猫咪冻干零食 鸡肉味 宠物营养增肥</a></h3>
+              <h3 class="product-title">
+                <a href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">猫咪冻干零食 鸡肉味 宠物营养增肥</a>
+              </h3>
               <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">25.9</span></span>
-                <span class="product-original-price">¥79</span>
-                <span class="product-sales">已售 2万</span>
-              </div>
-              <div class="product-extra">
-                <span class="product-commission">佣金 33%</span>
-                <span class="product-coupon">券 ¥53.1</span>
-              </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="猫咪冻干零食 鸡肉味 宠物营养增肥">📋 一键复制口令</button>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-badge">唯品会</div>
-            <div class="product-discount-tag">-70%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E6%88%B7%E5%A4%96%E9%9C%B2%E8%90%A5%E5%B8%90%E7%AF%B7%20%E5%85%A8%E8%87%AA%E5%8A%A8%E9%80%9F%E5%BC%80%20%E9%98%B2%E6%9A%B4%E9%9B%A8%E5%8F%8C%E4%BA%BA" alt="户外露营帐篷 全自动速开 防暴雨双人" loading="lazy">
-            <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">户外露营帐篷 全自动速开 防暴雨双人</a></h3>
-              <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">159</span></span>
-                <span class="product-original-price">¥529</span>
-                <span class="product-sales">已售 5600</span>
-              </div>
-              <div class="product-extra">
-                <span class="product-commission">佣金 47%</span>
-                <span class="product-coupon">券 ¥370</span>
-              </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="户外露营帐篷 全自动速开 防暴雨双人">📋 一键复制口令</button>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-badge">淘宝</div>
-            <div class="product-discount-tag">-69%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E9%AB%98%E6%B8%85%E7%BD%91%E7%BB%9C%E6%91%84%E5%83%8F%E5%A4%B4%20%E7%94%B5%E8%84%91%E7%9B%B4%E6%92%AD%20%E5%86%85%E7%BD%AE%E9%BA%A6%E5%85%8B%E9%A3%8E" alt="高清网络摄像头 电脑直播 内置麦克风" loading="lazy">
-            <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">高清网络摄像头 电脑直播 内置麦克风</a></h3>
-              <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">89</span></span>
-                <span class="product-original-price">¥289</span>
-                <span class="product-sales">已售 8900</span>
-              </div>
-              <div class="product-extra">
-                <span class="product-commission">佣金 43%</span>
-                <span class="product-coupon">券 ¥200</span>
-              </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="高清网络摄像头 电脑直播 内置麦克风">📋 一键复制口令</button>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-badge">拼多多</div>
-            <div class="product-discount-tag">-70%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E7%94%B5%E5%8A%A8%E5%89%83%E9%A1%BB%E5%88%80%20%E7%94%B7%E5%A3%AB%E5%88%AE%E8%83%A1%E5%88%80%20%E5%85%A8%E8%BA%AB%E6%B0%B4%E6%B4%97" alt="电动剃须刀 男士刮胡刀 全身水洗" loading="lazy">
-            <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">电动剃须刀 男士刮胡刀 全身水洗</a></h3>
-              <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">109</span></span>
-                <span class="product-original-price">¥369</span>
-                <span class="product-sales">已售 1.4万</span>
-              </div>
-              <div class="product-extra">
-                <span class="product-commission">佣金 39%</span>
-                <span class="product-coupon">券 ¥260</span>
-              </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="电动剃须刀 男士刮胡刀 全身水洗">📋 一键复制口令</button>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-badge">唯品会</div>
-            <div class="product-discount-tag">-70%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E8%BD%BB%E5%A5%A2%E5%B0%8F%E4%BC%97%E9%A6%99%E6%B0%B4%20%E5%A5%B3%E6%8C%81%E4%B9%85%E6%B7%A1%E9%A6%99%20%E6%B8%85%E6%96%B0%E8%8A%B1%E6%9E%9C%E8%B0%83" alt="轻奢小众香水 女持久淡香 清新花果调" loading="lazy">
-            <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">轻奢小众香水 女持久淡香 清新花果调</a></h3>
-              <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">69</span></span>
-                <span class="product-original-price">¥229</span>
-                <span class="product-sales">已售 2.8万</span>
-              </div>
-              <div class="product-extra">
-                <span class="product-commission">佣金 58%</span>
-                <span class="product-coupon">券 ¥160</span>
-              </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="轻奢小众香水 女持久淡香 清新花果调">📋 一键复制口令</button>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-badge">淘宝</div>
-            <div class="product-discount-tag">-68%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E6%A1%8C%E9%9D%A2%E6%94%B6%E7%BA%B3%E7%9B%92%20%E5%8C%96%E5%A6%86%E5%93%81%E6%95%B4%E7%90%86%20%E5%8D%A7%E5%AE%A4%E5%AE%BF%E8%88%8D%E5%AE%9E%E7%94%A8" alt="桌面收纳盒 化妆品整理 卧室宿舍实用" loading="lazy">
-            <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">桌面收纳盒 化妆品整理 卧室宿舍实用</a></h3>
-              <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">15.9</span></span>
-                <span class="product-original-price">¥49</span>
-                <span class="product-sales">已售 4.4万</span>
-              </div>
-              <div class="product-extra">
-                <span class="product-commission">佣金 32%</span>
-                <span class="product-coupon">券 ¥33.1</span>
-              </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="桌面收纳盒 化妆品整理 卧室宿舍实用">📋 一键复制口令</button>
-            </div>
-          </article>
-          <article class="product-card">
-            <div class="product-badge">拼多多</div>
-            <div class="product-discount-tag">-70%</div>
-            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=%E8%BF%90%E5%8A%A8%E6%B0%B4%E5%A3%B6%E5%A4%A7%E5%AE%B9%E9%87%8F%20%E5%81%A5%E8%BA%AB%E5%90%A8%E5%90%A8%E6%A1%B6%20%E8%80%90%E9%AB%98%E6%B8%A9" alt="运动水壶大容量 健身吨吨桶 耐高温" loading="lazy">
-            <div class="product-info">
-              <h3 class="product-title"><a href="#" target="_blank" rel="nofollow noopener">运动水壶大容量 健身吨吨桶 耐高温</a></h3>
-              <div class="product-meta">
-                <span class="product-price"><span class="price-symbol">¥</span><span class="price-value">29.9</span></span>
-                <span class="product-original-price">¥99</span>
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">25.90</span>
+                </span>
+                <span class="product-original-price">¥79.00</span>
                 <span class="product-sales">已售 1.9万</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 37%</span>
-                <span class="product-coupon">券 ¥69.1</span>
+                <span class="product-commission">佣金 33.0%</span>
+                
               </div>
-              <button class="copy-btn" data-link="https://s.click.taobao.com/sample-link" data-title="运动水壶大容量 健身吨吨桶 耐高温">📋 一键复制口令</button>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" data-title="猫咪冻干零食 鸡肉味 宠物营养增肥">
+                  📋 复制口令
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-badge">唯品会</div>
+            <div class="product-discount-tag">-70%</div>
+            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo15" alt="户外露营帐篷 全自动速开 防暴雨双人" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
+            <div class="product-info">
+              <h3 class="product-title">
+                <a href="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" target="_blank" rel="nofollow noopener">户外露营帐篷 全自动速开 防暴雨双人</a>
+              </h3>
+              <div class="product-meta">
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">159.00</span>
+                </span>
+                <span class="product-original-price">¥529.00</span>
+                <span class="product-sales">已售 5600</span>
+              </div>
+              <div class="product-extra">
+                <span class="product-commission">佣金 47.0%</span>
+                
+              </div>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" data-title="户外露营帐篷 全自动速开 防暴雨双人">
+                  📋 复制口令
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-badge">淘宝</div>
+            <div class="product-discount-tag">-69%</div>
+            <img class="product-img" src="https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo16" alt="高清网络摄像头 电脑直播 内置麦克风" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
+            <div class="product-info">
+              <h3 class="product-title">
+                <a href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">高清网络摄像头 电脑直播 内置麦克风</a>
+              </h3>
+              <div class="product-meta">
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">89.00</span>
+                </span>
+                <span class="product-original-price">¥289.00</span>
+                <span class="product-sales">已售 8900</span>
+              </div>
+              <div class="product-extra">
+                <span class="product-commission">佣金 43.0%</span>
+                
+              </div>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" data-title="高清网络摄像头 电脑直播 内置麦克风">
+                  📋 复制口令
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-badge">拼多多</div>
+            <div class="product-discount-tag">-70%</div>
+            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo17" alt="电动剃须刀 男士刮胡刀 全身水洗" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
+            <div class="product-info">
+              <h3 class="product-title">
+                <a href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">电动剃须刀 男士刮胡刀 全身水洗</a>
+              </h3>
+              <div class="product-meta">
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">109.00</span>
+                </span>
+                <span class="product-original-price">¥369.00</span>
+                <span class="product-sales">已售 1.4万</span>
+              </div>
+              <div class="product-extra">
+                <span class="product-commission">佣金 39.0%</span>
+                
+              </div>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" data-title="电动剃须刀 男士刮胡刀 全身水洗">
+                  📋 复制口令
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-badge">唯品会</div>
+            <div class="product-discount-tag">-70%</div>
+            <img class="product-img" src="https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo18" alt="轻奢小众香水 女持久淡香 清新花果调" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
+            <div class="product-info">
+              <h3 class="product-title">
+                <a href="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" target="_blank" rel="nofollow noopener">轻奢小众香水 女持久淡香 清新花果调</a>
+              </h3>
+              <div class="product-meta">
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">69.00</span>
+                </span>
+                <span class="product-original-price">¥229.00</span>
+                <span class="product-sales">已售 2.8万</span>
+              </div>
+              <div class="product-extra">
+                <span class="product-commission">佣金 58.0%</span>
+                
+              </div>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://union.vip.com/demo-link?pid=c0dfea2bdac35b9b7c62c1f016494128" data-title="轻奢小众香水 女持久淡香 清新花果调">
+                  📋 复制口令
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-badge">淘宝</div>
+            <div class="product-discount-tag">-68%</div>
+            <img class="product-img" src="https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo19" alt="桌面收纳盒 化妆品整理 卧室宿舍实用" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
+            <div class="product-info">
+              <h3 class="product-title">
+                <a href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">桌面收纳盒 化妆品整理 卧室宿舍实用</a>
+              </h3>
+              <div class="product-meta">
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">15.90</span>
+                </span>
+                <span class="product-original-price">¥49.00</span>
+                <span class="product-sales">已售 4.3万</span>
+              </div>
+              <div class="product-extra">
+                <span class="product-commission">佣金 32.0%</span>
+                
+              </div>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://s.click.taobao.com/demo-link?pid=mm_28809417_3429550221_116304950207" data-title="桌面收纳盒 化妆品整理 卧室宿舍实用">
+                  📋 复制口令
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-badge">拼多多</div>
+            <div class="product-discount-tag">-70%</div>
+            <img class="product-img" src="https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo20" alt="运动水壶大容量 健身吨吨桶 耐高温" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/><text fill=%22%23999%22 font-size=%2214%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>暂无图片</text></svg>'">
+            <div class="product-info">
+              <h3 class="product-title">
+                <a href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">运动水壶大容量 健身吨吨桶 耐高温</a>
+              </h3>
+              <div class="product-meta">
+                <span class="product-price">
+                  <span class="price-symbol">¥</span>
+                  <span class="price-value">29.90</span>
+                </span>
+                <span class="product-original-price">¥99.00</span>
+                <span class="product-sales">已售 1.9万</span>
+              </div>
+              <div class="product-extra">
+                <span class="product-commission">佣金 37.0%</span>
+                
+              </div>
+              <div class="product-actions">
+                <a class="buy-btn" href="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="https://mobile.yangkeduo.com/demo-link?pid=36687756_317370090" data-title="运动水壶大容量 健身吨吨桶 耐高温">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>
     </div>
+
+    <!-- 使用教程 -->
+    <section class="steps-section">
+      <h2>怎么领取优惠券下单</h2>
+      <div class="steps-list">
+        <div class="step-item"><div class="step-num">1</div><p>点击「立即抢购」或「复制口令」</p></div>
+        <div class="step-item"><div class="step-num">2</div><p>打开淘宝 / 拼多多 / 唯品会 APP</p></div>
+        <div class="step-item"><div class="step-num">3</div><p>自动识别口令并领券，下单立减省钱</p></div>
+      </div>
+    </section>
+
+    <!-- 分页提示 -->
     <div class="info-bar" style="margin-top:24px;justify-content:center;">
       <span>💡 点击「一键复制口令」即可复制推广链接或淘口令，分享好友购买可获得佣金</span>
     </div>
+
   </div>
+
+  <!-- ===== 吸底行动条 ===== -->
+  <div class="sticky-bar">
+    <div>
+      <div class="sticky-title">今日限时秒杀 · 大额隐藏优惠券</div>
+      <div class="sticky-sub">券量有限，先到先得</div>
+    </div>
+    <button class="sticky-btn" id="stickyGo">立即抢购</button>
+  </div>
+
+  <!-- ===== 网站底部 ===== -->
   <footer>
-    <p>© 2026 今日限时秒杀 - 大额隐藏优惠券 · 每日自动更新 · 数据来源：好单库</p>
+    <p>© 2026 <a href="https://Silverping0.github.io/rebate-seo/" target="_blank">今日限时秒杀 - 大额隐藏优惠券</a> · 每日自动更新 · 数据来源：好单库</p>
     <p style="margin-top:4px;">本站部分商品信息来源于第三方API，仅供个人学习交流使用。</p>
   </footer>
+
+  <!-- ===== Toast 提示容器 ===== -->
   <div class="toast" id="toast"></div>
+
+  <!-- ===== JSON-LD 结构化数据（帮助搜索引擎理解页面内容） ===== -->
   <script type="application/ld+json" class="hidden">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "今日限时秒杀 - 大额隐藏优惠券",
     "description": "淘宝/拼多多/唯品会内部高佣优惠券每日精选，实时更新超值商品。",
-    "numberOfItems": 20
+    "numberOfItems": 20,
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"夏季冰丝防晒衣 轻薄透气 大额隐藏优惠券","image":"https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo1","offers":{"@type":"Offer","price":"29.90","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"蓝牙耳机无线入耳式 降噪长续航 限时秒杀","image":"https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo2","offers":{"@type":"Offer","price":"59.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"纯棉T恤男短袖 夏季新款 圆领休闲百搭","image":"https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo3","offers":{"@type":"Offer","price":"39.90","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"智能手环运动手表 心率监测 防水大屏","image":"https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo4","offers":{"@type":"Offer","price":"89.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"全麦无糖面包 低脂代餐 早餐健康零食","image":"https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo5","offers":{"@type":"Offer","price":"19.90","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":6,"item":{"@type":"Product","name":"行李箱万向轮 登机箱 大容量静音拉杆箱","image":"https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo6","offers":{"@type":"Offer","price":"139.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":7,"item":{"@type":"Product","name":"电动牙刷声波震动 成人软毛 智能定时","image":"https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo7","offers":{"@type":"Offer","price":"69.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":8,"item":{"@type":"Product","name":"男士运动鞋跑步鞋 轻便透气 缓震耐磨","image":"https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo8","offers":{"@type":"Offer","price":"99.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":9,"item":{"@type":"Product","name":"家用小型除湿机 静音抽湿器 卧室专用","image":"https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo9","offers":{"@type":"Offer","price":"249.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":10,"item":{"@type":"Product","name":"智能保温杯 316不锈钢 显温大容量","image":"https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo10","offers":{"@type":"Offer","price":"49.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":11,"item":{"@type":"Product","name":"儿童玩具积木桌 大颗粒拼装 学习益智","image":"https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo11","offers":{"@type":"Offer","price":"79.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":12,"item":{"@type":"Product","name":"玻尿酸补水面膜 保湿紧致 女护肤正品","image":"https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo12","offers":{"@type":"Offer","price":"35.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":13,"item":{"@type":"Product","name":"便携榨汁机 迷你果汁杯 充电无线","image":"https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo13","offers":{"@type":"Offer","price":"59.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":14,"item":{"@type":"Product","name":"猫咪冻干零食 鸡肉味 宠物营养增肥","image":"https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo14","offers":{"@type":"Offer","price":"25.90","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":15,"item":{"@type":"Product","name":"户外露营帐篷 全自动速开 防暴雨双人","image":"https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo15","offers":{"@type":"Offer","price":"159.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":16,"item":{"@type":"Product","name":"高清网络摄像头 电脑直播 内置麦克风","image":"https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo16","offers":{"@type":"Offer","price":"89.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":17,"item":{"@type":"Product","name":"电动剃须刀 男士刮胡刀 全身水洗","image":"https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo17","offers":{"@type":"Offer","price":"109.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":18,"item":{"@type":"Product","name":"轻奢小众香水 女持久淡香 清新花果调","image":"https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo18","offers":{"@type":"Offer","price":"69.00","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":19,"item":{"@type":"Product","name":"桌面收纳盒 化妆品整理 卧室宿舍实用","image":"https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo19","offers":{"@type":"Offer","price":"15.90","priceCurrency":"CNY"}}},
+      {"@type":"ListItem","position":20,"item":{"@type":"Product","name":"运动水壶大容量 健身吨吨桶 耐高温","image":"https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo20","offers":{"@type":"Offer","price":"29.90","priceCurrency":"CNY"}}}
+    ]
   }
   </script>
+
+  <!-- ===== JavaScript：一键复制功能 ===== -->
   <script>
     (function() {
       "use strict";
+
+      /**
+       * 显示 Toast 提示
+       * @param {string} msg - 提示文本
+       * @param {boolean} isSuccess - 是否成功
+       */
       function showToast(msg, isSuccess) {
         var toast = document.getElementById("toast");
         if (!toast) return;
@@ -468,24 +1162,40 @@
         toast.classList.add("show");
         setTimeout(function() { toast.classList.remove("show"); }, 2500);
       }
+
+      // 为所有复制按钮绑定事件
       var buttons = document.querySelectorAll(".copy-btn");
       buttons.forEach(function(btn) {
         btn.addEventListener("click", function() {
           var link = btn.getAttribute("data-link") || "";
           var title = btn.getAttribute("data-title") || "商品";
+
+          // 优先使用淘口令，没有则复制推广链接
           var copyText = link || title + " 推广链接";
+
+          // 使用 Clipboard API 复制
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(copyText).then(function() {
+              // 按钮反馈
               btn.textContent = "✅ 已复制！";
               btn.classList.add("copied");
               showToast("✅ 已复制 " + title + " 的推广链接/口令！", true);
-              setTimeout(function() { btn.textContent = "📋 一键复制口令"; btn.classList.remove("copied"); }, 2000);
-            }).catch(function() { fallbackCopy(btn, copyText, title); });
+              setTimeout(function() {
+                btn.textContent = "📋 复制口令";
+                btn.classList.remove("copied");
+              }, 2000);
+            }).catch(function() {
+              fallbackCopy(btn, copyText, title);
+            });
           } else {
             fallbackCopy(btn, copyText, title);
           }
         });
       });
+
+      /**
+       * 降级复制方案（针对不支持 Clipboard API 的旧浏览器）
+       */
       function fallbackCopy(btn, text, title) {
         var textarea = document.createElement("textarea");
         textarea.value = text;
@@ -499,7 +1209,10 @@
             btn.textContent = "✅ 已复制！";
             btn.classList.add("copied");
             showToast("✅ 已复制 " + title + " 的推广链接/口令！", true);
-            setTimeout(function() { btn.textContent = "📋 一键复制口令"; btn.classList.remove("copied"); }, 2000);
+            setTimeout(function() {
+              btn.textContent = "📋 复制口令";
+              btn.classList.remove("copied");
+            }, 2000);
           } else {
             showToast("❌ 复制失败，请手动复制链接", false);
           }
@@ -508,7 +1221,69 @@
         }
         document.body.removeChild(textarea);
       }
+
+      // 倒计时：距离下一次更新（北京时间 8:00 / 12:00 / 20:00）
+      function updateCountdown() {
+        var el = document.getElementById("countdown");
+        if (!el) return;
+        var now = new Date();
+        var beijing = new Date(now.getTime() + (8 - now.getTimezoneOffset() / 60) * 3600000);
+        var targets = [8, 12, 20];
+        var next = null;
+        for (var i = 0; i < targets.length; i++) {
+          var cand = new Date(Date.UTC(beijing.getUTCFullYear(), beijing.getUTCMonth(), beijing.getUTCDate(), targets[i], 0, 0));
+          if (cand > beijing) { next = cand; break; }
+        }
+        if (!next) {
+          next = new Date(Date.UTC(beijing.getUTCFullYear(), beijing.getUTCMonth(), beijing.getUTCDate() + 1, 8, 0, 0));
+        }
+        var remain = Math.max(0, next - now);
+        var s = Math.floor(remain / 1000);
+        var hh = String(Math.floor(s / 3600)).padStart(2, "0");
+        var mm = String(Math.floor((s % 3600) / 60)).padStart(2, "0");
+        var ss = String(s % 60).padStart(2, "0");
+        el.textContent = "⏰ 距下次更新 " + hh + ":" + mm + ":" + ss;
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // 分享按钮
+      var shareBtns = document.querySelectorAll(".share-btn");
+      shareBtns.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          var type = btn.getAttribute("data-share");
+          var url = encodeURIComponent(location.href);
+          var title = encodeURIComponent(document.title);
+          if (type === "qq") {
+            window.open("https://connect.qq.com/widget/shareqq/index.html?url=" + url + "&title=" + title, "_blank", "width=680,height=520");
+          } else if (type === "weibo") {
+            window.open("https://service.weibo.com/share/share.php?url=" + url + "&title=" + title, "_blank", "width=680,height=520");
+          } else if (type === "copy") {
+            var tmp = document.createElement("textarea");
+            tmp.value = location.href;
+            tmp.style.position = "fixed";
+            tmp.style.left = "-9999px";
+            document.body.appendChild(tmp);
+            tmp.select();
+            document.execCommand("copy");
+            document.body.removeChild(tmp);
+            showToast("✅ 链接已复制，快去分享吧！", true);
+          }
+        });
+      });
+
+      // 吸底按钮：回到商品列表
+      var stickyGo = document.getElementById("stickyGo");
+      if (stickyGo) {
+        stickyGo.addEventListener("click", function() {
+          var grid = document.querySelector(".product-grid");
+          if (grid) grid.scrollIntoView({ behavior: "smooth" });
+        });
+      }
     })();
   </script>
+
+  <!-- ===== 百度统计（可选：如需统计请在此添加代码） ===== -->
+
 </body>
 </html>
