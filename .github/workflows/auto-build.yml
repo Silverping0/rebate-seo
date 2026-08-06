@@ -1,0 +1,94 @@
+# ============================================================
+# 返利网站自动 SEO 截流系统 - GitHub Actions 工作流
+# 功能：每天定时运行 generate.js，并将生成的 index.html 推送到 gh-pages 分支
+# 定时：每天 8:00 / 12:00 / 20:00（北京时间）
+#       对应 UTC 时间为 0:00 / 4:00 / 12:00
+# 触发方式：
+#   1. 定时触发（schedule）
+#   2. 手动触发（workflow_dispatch）
+# ============================================================
+
+name: Auto Build & Deploy
+
+on:
+  # ===== 定时触发 =====
+  # cron 表达式使用 UTC 时间，北京时间 = UTC + 8 小时
+  # 0 0,4,12 = 每天 0点、4点、12点（UTC）= 北京时间 8点、12点、20点
+  schedule:
+    - cron: "0 0,4,12 * * *"
+
+  # ===== 手动触发（方便测试） =====
+  workflow_dispatch:
+
+# ===== 工作权限配置 =====
+# 允许工作流将文件推送到 gh-pages 分支
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# ===== 并发控制 =====
+# 同一时间只运行一个工作流，避免多个任务同时推送造成冲突
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # ===== 主任务：采集商品并部署到 gh-pages =====
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 步骤1：检出仓库代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 步骤2：设置 Node.js 环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      # 步骤3：安装项目依赖
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+
+      # 步骤4：运行生成脚本
+      # 脚本会从好单库 API 获取高佣商品并生成 index.html
+      # 如果 API 失败，脚本会自动保留旧页面
+      - name: Generate SEO page
+        run: node generate.js
+        env:
+          # 好单库 API 密钥（从 GitHub Secrets 读取）
+          HAODANKU_APIKEY: ${{ secrets.HAODANKU_APIKEY }}
+          # 推广位 PID（从 GitHub Secrets 读取）
+          PID: ${{ secrets.PID }}
+          # 仓库信息（用于生成 canonical 链接）
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+
+      # 步骤5：生成当前时间（用于 commit message）
+      - name: Get current time
+        id: date
+        run: echo "date=$(date '+%Y-%m-%d %H:%M:%S')" >> "$GITHUB_OUTPUT"
+
+      # 步骤6：准备发布目录（只发布 index.html，保持 gh-pages 分支干净）
+      - name: Prepare publish directory
+        run: |
+          mkdir -p public
+          cp index.html public/index.html
+          echo "生成时间: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+
+      # 步骤7：部署到 gh-pages 分支
+      # 使用 peaceiris/actions-gh-pages 将 index.html 推送到 gh-pages 分支
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          force_orphan: true
+          keep_files: false
+          user_name: "github-actions[bot]"
+          user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          commit_message: "Auto update: ${{ steps.date.outputs.date }}"
