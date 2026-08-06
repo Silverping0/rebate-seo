@@ -81,6 +81,8 @@ jobs:
         run: |
           mkdir -p public
           cp index.html public/index.html
+          cp sitemap.xml public/sitemap.xml || true
+          cp robots.txt public/robots.txt || true
           echo "生成时间: $(date '+%Y-%m-%d %H:%M:%S %Z')"
 
       # 步骤7：部署到 gh-pages 分支
