@@ -50,6 +50,71 @@ function getFutureDate(days) {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
+/**
+ * 获取站点根地址（用于 sitemap / robots / 分享链接）
+ */
+function getSiteBase() {
+  const repo = process.env.GITHUB_REPOSITORY || "your-username/rebate-seo";
+  const owner = process.env.GITHUB_REPOSITORY_OWNER || "your-username";
+  const repoName = repo.split("/")[1] || "rebate-seo";
+  return `https://${owner}.github.io/${repoName}`;
+}
+
+/**
+ * 生成 sitemap.xml，帮助搜索引擎发现并抓取页面
+ */
+function generateSitemap() {
+  const base = getSiteBase();
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${base}/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+`;
+}
+
+/**
+ * 生成 robots.txt，允许抓取并声明 sitemap
+ */
+function generateRobots() {
+  const base = getSiteBase();
+  return `User-agent: *
+Allow: /
+Sitemap: ${base}/sitemap.xml
+`;
+}
+
+/**
+ * 生成 20 个示例商品（仅用于本地演示模式，正式环境由 API 提供）
+ */
+function getDemoProducts() {
+  return [
+    { title: "夏季冰丝防晒衣 轻薄透气 大额隐藏优惠券", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo1", itemprice: "99.00", coupon_price: "29.90", sales: 28600, commission_rate: 50, shop_type: "1", coupon_link: "https://s.click.taobao.com/demo-link" },
+    { title: "蓝牙耳机无线入耳式 降噪长续航 限时秒杀", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo2", itemprice: "199.00", coupon_price: "59.00", sales: 45600, commission_rate: 45, shop_type: "2", coupon_link: "https://mobile.yangkeduo.com/demo-link" },
+    { title: "纯棉T恤男短袖 夏季新款 圆领休闲百搭", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo3", itemprice: "129.00", coupon_price: "39.90", sales: 13200, commission_rate: 40, shop_type: "1", coupon_link: "https://s.click.taobao.com/demo-link" },
+    { title: "智能手环运动手表 心率监测 防水大屏", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo4", itemprice: "299.00", coupon_price: "89.00", sales: 9800, commission_rate: 55, shop_type: "3", coupon_link: "https://union.vip.com/demo-link" },
+    { title: "全麦无糖面包 低脂代餐 早餐健康零食", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo5", itemprice: "59.00", coupon_price: "19.90", sales: 52400, commission_rate: 35, shop_type: "2", coupon_link: "https://mobile.yangkeduo.com/demo-link" },
+    { title: "行李箱万向轮 登机箱 大容量静音拉杆箱", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo6", itemprice: "459.00", coupon_price: "139.00", sales: 7800, commission_rate: 42, shop_type: "1", coupon_link: "https://s.click.taobao.com/demo-link" },
+    { title: "电动牙刷声波震动 成人软毛 智能定时", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo7", itemprice: "239.00", coupon_price: "69.00", sales: 32100, commission_rate: 48, shop_type: "2", coupon_link: "https://mobile.yangkeduo.com/demo-link" },
+    { title: "男士运动鞋跑步鞋 轻便透气 缓震耐磨", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo8", itemprice: "329.00", coupon_price: "99.00", sales: 15700, commission_rate: 52, shop_type: "3", coupon_link: "https://union.vip.com/demo-link" },
+    { title: "家用小型除湿机 静音抽湿器 卧室专用", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo9", itemprice: "699.00", coupon_price: "249.00", sales: 4300, commission_rate: 38, shop_type: "1", coupon_link: "https://s.click.taobao.com/demo-link" },
+    { title: "智能保温杯 316不锈钢 显温大容量", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo10", itemprice: "169.00", coupon_price: "49.00", sales: 38900, commission_rate: 36, shop_type: "2", coupon_link: "https://mobile.yangkeduo.com/demo-link" },
+    { title: "儿童玩具积木桌 大颗粒拼装 学习益智", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo11", itemprice: "259.00", coupon_price: "79.00", sales: 6700, commission_rate: 44, shop_type: "1", coupon_link: "https://s.click.taobao.com/demo-link" },
+    { title: "玻尿酸补水面膜 保湿紧致 女护肤正品", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo12", itemprice: "119.00", coupon_price: "35.00", sales: 78200, commission_rate: 60, shop_type: "3", coupon_link: "https://union.vip.com/demo-link" },
+    { title: "便携榨汁机 迷你果汁杯 充电无线", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo13", itemprice: "189.00", coupon_price: "59.00", sales: 21400, commission_rate: 41, shop_type: "1", coupon_link: "https://s.click.taobao.com/demo-link" },
+    { title: "猫咪冻干零食 鸡肉味 宠物营养增肥", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo14", itemprice: "79.00", coupon_price: "25.90", sales: 19500, commission_rate: 33, shop_type: "2", coupon_link: "https://mobile.yangkeduo.com/demo-link" },
+    { title: "户外露营帐篷 全自动速开 防暴雨双人", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo15", itemprice: "529.00", coupon_price: "159.00", sales: 5600, commission_rate: 47, shop_type: "3", coupon_link: "https://union.vip.com/demo-link" },
+    { title: "高清网络摄像头 电脑直播 内置麦克风", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo16", itemprice: "289.00", coupon_price: "89.00", sales: 8900, commission_rate: 43, shop_type: "1", coupon_link: "https://s.click.taobao.com/demo-link" },
+    { title: "电动剃须刀 男士刮胡刀 全身水洗", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo17", itemprice: "369.00", coupon_price: "109.00", sales: 14300, commission_rate: 39, shop_type: "2", coupon_link: "https://mobile.yangkeduo.com/demo-link" },
+    { title: "轻奢小众香水 女持久淡香 清新花果调", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo18", itemprice: "229.00", coupon_price: "69.00", sales: 27600, commission_rate: 58, shop_type: "3", coupon_link: "https://union.vip.com/demo-link" },
+    { title: "桌面收纳盒 化妆品整理 卧室宿舍实用", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo19", itemprice: "49.00", coupon_price: "15.90", sales: 43500, commission_rate: 32, shop_type: "1", coupon_link: "https://s.click.taobao.com/demo-link" },
+    { title: "运动水壶大容量 健身吨吨桶 耐高温", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo20", itemprice: "99.00", coupon_price: "29.90", sales: 18700, commission_rate: 37, shop_type: "2", coupon_link: "https://mobile.yangkeduo.com/demo-link" }
+  ];
+}
+
 // ==================== 步骤1：调用好单库 API 采集商品 ====================
 
 /**
@@ -166,11 +231,14 @@ function generateProductCard(item, index) {
               </div>
               <div class="product-extra">
                 <span class="product-commission">佣金 ${commissionRate}%</span>
-                ${couponMoney > 0 ? `<span class="product-coupon">券 ¥${couponMoney}</span>` : ""}
+                ${couponMoney > 0 ? `<span class="product-coupon">立省 ¥${couponMoney}</span>` : ""}
               </div>
-              <button class="copy-btn" data-link="${promUrl.replace(/"/g, "&quot;")}" data-title="${title.replace(/"/g, "&quot;")}">
-                📋 一键复制口令
-              </button>
+              <div class="product-actions">
+                <a class="buy-btn" href="${promUrl || '#'}" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn" data-link="${promUrl.replace(/"/g, "&quot;")}" data-title="${title.replace(/"/g, "&quot;")}">
+                  📋 复制口令
+                </button>
+              </div>
             </div>
           </article>`;
 }
@@ -434,6 +502,33 @@ function generateHTML(products) {
       font-weight: 600;
     }
 
+    /* ===== 商品操作区 ===== */
+    .product-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .product-actions .copy-btn {
+      width: auto;
+      flex: 1;
+      padding: 10px 6px;
+    }
+    .buy-btn {
+      flex: 1.2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 6px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #ffa502, #ff4757);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .buy-btn:hover { opacity: 0.9; }
+    .buy-btn:active { transform: scale(0.97); }
+
     /* ===== 复制按钮 ===== */
     .copy-btn {
       width: 100%;
@@ -451,6 +546,108 @@ function generateHTML(products) {
     .copy-btn:active { transform: scale(0.97); }
     .copy-btn.copied {
       background: linear-gradient(135deg, #2ed573, #7bed9f);
+    }
+
+    /* ===== 信任标识 ===== */
+    .trust-bar {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      font-size: 13px;
+      color: #666;
+    }
+    .trust-bar span { color: #2ed573; font-weight: 600; }
+
+    /* ===== 分享条 ===== */
+    .share-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      font-size: 14px;
+      color: #666;
+    }
+    .share-bar strong { color: #333; }
+    .share-btn {
+      border: 1px solid #ffd0d4;
+      background: #fff0f0;
+      color: #ff4757;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .share-btn:hover { background: #ff4757; color: #fff; }
+
+    /* ===== 使用教程 ===== */
+    .steps-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 24px 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .steps-section h2 { font-size: 18px; margin-bottom: 14px; color: #333; }
+    .steps-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .step-item {
+      background: #f8f9fb;
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .step-item .step-num {
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      margin: 0 auto 8px;
+      border-radius: 50%;
+      background: #ff4757;
+      color: #fff;
+      font-weight: 700;
+    }
+    .step-item p { font-size: 13px; color: #666; }
+
+    /* ===== 底部吸底条 ===== */
+    .sticky-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+    }
+    .sticky-bar .sticky-title { font-size: 14px; font-weight: 700; color: #ff4757; }
+    .sticky-bar .sticky-sub { font-size: 12px; color: #999; }
+    .sticky-btn {
+      background: linear-gradient(135deg, #ff4757, #ff6b81);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 22px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
     }
 
     /* ===== 网站底部 ===== */
@@ -490,11 +687,15 @@ function generateHTML(products) {
 
     /* ===== 响应式 ===== */
     @media (max-width: 640px) {
+      body { padding-bottom: 72px; }
       header { padding: 30px 16px 40px; }
       header h1 { font-size: 1.5em; }
       .container { margin-top: -25px; }
       .product-grid { grid-template-columns: 1fr; }
       .header-stats { gap: 16px; }
+    }
+    @media (min-width: 641px) {
+      .sticky-bar { display: none; }
     }
   </style>
 </head>
@@ -531,7 +732,24 @@ function generateHTML(products) {
     <!-- 信息条 -->
     <div class="info-bar">
       <span>📢 更新于 <span class="update-time">${updateTime}</span></span>
+      <span class="countdown" id="countdown">⏰ 距下次更新 --:--:--</span>
       <span class="count-badge">共 ${products.length} 款超值商品</span>
+    </div>
+
+    <!-- 信任标识 -->
+    <div class="trust-bar">
+      <span>✔ 限时秒杀</span>
+      <span>✔ 大额隐藏券</span>
+      <span>✔ 正品保障</span>
+      <span>✔ 自买省钱 · 分享赚钱</span>
+    </div>
+
+    <!-- 分享条 -->
+    <div class="share-bar">
+      <strong>💬 分享给好友，好友下单你赚佣金</strong>
+      <button class="share-btn" data-share="qq">QQ 分享</button>
+      <button class="share-btn" data-share="weibo">微博分享</button>
+      <button class="share-btn" data-share="copy">复制链接</button>
     </div>
 
     <!-- 商品网格 -->
@@ -539,11 +757,30 @@ function generateHTML(products) {
       ${productCards}
     </div>
 
+    <!-- 使用教程 -->
+    <section class="steps-section">
+      <h2>怎么领取优惠券下单</h2>
+      <div class="steps-list">
+        <div class="step-item"><div class="step-num">1</div><p>点击「立即抢购」或「复制口令」</p></div>
+        <div class="step-item"><div class="step-num">2</div><p>打开淘宝 / 拼多多 / 唯品会 APP</p></div>
+        <div class="step-item"><div class="step-num">3</div><p>自动识别口令并领券，下单立减省钱</p></div>
+      </div>
+    </section>
+
     <!-- 分页提示 -->
     <div class="info-bar" style="margin-top:24px;justify-content:center;">
       <span>💡 点击「一键复制口令」即可复制推广链接或淘口令，分享好友购买可获得佣金</span>
     </div>
 
+  </div>
+
+  <!-- ===== 吸底行动条 ===== -->
+  <div class="sticky-bar">
+    <div>
+      <div class="sticky-title">今日限时秒杀 · 大额隐藏优惠券</div>
+      <div class="sticky-sub">券量有限，先到先得</div>
+    </div>
+    <button class="sticky-btn" id="stickyGo">立即抢购</button>
   </div>
 
   <!-- ===== 网站底部 ===== -->
@@ -619,7 +856,7 @@ function generateHTML(products) {
               btn.classList.add("copied");
               showToast("✅ 已复制 " + title + " 的推广链接/口令！", true);
               setTimeout(function() {
-                btn.textContent = "📋 一键复制口令";
+                btn.textContent = "📋 复制口令";
                 btn.classList.remove("copied");
               }, 2000);
             }).catch(function() {
@@ -648,7 +885,7 @@ function generateHTML(products) {
             btn.classList.add("copied");
             showToast("✅ 已复制 " + title + " 的推广链接/口令！", true);
             setTimeout(function() {
-              btn.textContent = "📋 一键复制口令";
+              btn.textContent = "📋 复制口令";
               btn.classList.remove("copied");
             }, 2000);
           } else {
@@ -658,6 +895,65 @@ function generateHTML(products) {
           showToast("❌ 复制失败，请手动复制链接", false);
         }
         document.body.removeChild(textarea);
+      }
+
+      // 倒计时：距离下一次更新（北京时间 8:00 / 12:00 / 20:00）
+      function updateCountdown() {
+        var el = document.getElementById("countdown");
+        if (!el) return;
+        var now = new Date();
+        var beijing = new Date(now.getTime() + (8 - now.getTimezoneOffset() / 60) * 3600000);
+        var targets = [8, 12, 20];
+        var next = null;
+        for (var i = 0; i < targets.length; i++) {
+          var cand = new Date(Date.UTC(beijing.getUTCFullYear(), beijing.getUTCMonth(), beijing.getUTCDate(), targets[i], 0, 0));
+          if (cand > beijing) { next = cand; break; }
+        }
+        if (!next) {
+          next = new Date(Date.UTC(beijing.getUTCFullYear(), beijing.getUTCMonth(), beijing.getUTCDate() + 1, 8, 0, 0));
+        }
+        var remain = Math.max(0, next - now);
+        var s = Math.floor(remain / 1000);
+        var hh = String(Math.floor(s / 3600)).padStart(2, "0");
+        var mm = String(Math.floor((s % 3600) / 60)).padStart(2, "0");
+        var ss = String(s % 60).padStart(2, "0");
+        el.textContent = "⏰ 距下次更新 " + hh + ":" + mm + ":" + ss;
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // 分享按钮
+      var shareBtns = document.querySelectorAll(".share-btn");
+      shareBtns.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          var type = btn.getAttribute("data-share");
+          var url = encodeURIComponent(location.href);
+          var title = encodeURIComponent(document.title);
+          if (type === "qq") {
+            window.open("https://connect.qq.com/widget/shareqq/index.html?url=" + url + "&title=" + title, "_blank", "width=680,height=520");
+          } else if (type === "weibo") {
+            window.open("https://service.weibo.com/share/share.php?url=" + url + "&title=" + title, "_blank", "width=680,height=520");
+          } else if (type === "copy") {
+            var tmp = document.createElement("textarea");
+            tmp.value = location.href;
+            tmp.style.position = "fixed";
+            tmp.style.left = "-9999px";
+            document.body.appendChild(tmp);
+            tmp.select();
+            document.execCommand("copy");
+            document.body.removeChild(tmp);
+            showToast("✅ 链接已复制，快去分享吧！", true);
+          }
+        });
+      });
+
+      // 吸底按钮：回到商品列表
+      var stickyGo = document.getElementById("stickyGo");
+      if (stickyGo) {
+        stickyGo.addEventListener("click", function() {
+          var grid = document.querySelector(".product-grid");
+          if (grid) grid.scrollIntoView({ behavior: "smooth" });
+        });
       }
     })();
   </script>
@@ -680,36 +976,43 @@ async function main() {
   console.log("  启动时间:", getFormattedDate());
   console.log("========================================");
 
-  // 检查 API Key 是否配置
-  if (!API_KEY) {
-    console.error("[ERROR] 环境变量 HAODANKU_APIKEY 未设置！");
-    console.error("[ERROR] 请前往仓库 Settings → Secrets and variables → Actions 添加此密钥。");
-    process.exit(1);
-  }
-
+  // 本地演示模式：node generate.js --demo
+  const isDemo = process.argv.includes("--demo");
   let products = [];
 
-  try {
-    // 采集商品数据
-    products = await fetchProducts();
-  } catch (err) {
-    // ========== 容错处理 ==========
-    // 如果 API 调用失败，检查是否有上一次生成的 index.html.bak 备份文件
-    // 有则恢复，无则创建一个占位页面
-    console.error("[ERROR] API 采集失败:", err.message);
+  if (isDemo) {
+    // 演示模式：直接使用示例商品生成页面，方便本地预览和初次部署
+    console.log("[DEMO] 使用示例商品生成预览页面");
+    products = getDemoProducts();
+  } else {
+    // 检查 API Key 是否配置
+    if (!API_KEY) {
+      console.error("[ERROR] 环境变量 HAODANKU_APIKEY 未设置！");
+      console.error("[ERROR] 请前往仓库 Settings → Secrets and variables → Actions 添加此密钥。");
+      process.exit(1);
+    }
 
-    const bakPath = path.join(__dirname, "index.html.bak");
-    const indexPath = path.join(__dirname, "index.html");
+    try {
+      // 采集商品数据
+      products = await fetchProducts();
+    } catch (err) {
+      // ========== 容错处理 ==========
+      // 如果 API 调用失败，检查是否有上一次生成的 index.html.bak 备份文件
+      // 有则恢复，无则创建一个占位页面
+      console.error("[ERROR] API 采集失败:", err.message);
 
-    if (fs.existsSync(bakPath)) {
-      // 恢复备份文件
-      fs.copyFileSync(bakPath, indexPath);
-      console.log("[RECOVER] 已从 index.html.bak 恢复旧页面，网站内容保持不变。");
-    } else if (fs.existsSync(indexPath)) {
-      console.log("[RECOVER] 旧页面文件已存在且无备份，保留现有 index.html。");
-    } else {
-      // 连旧页面都没有，生成一个简单占位页面
-      const fallbackHTML = `<!DOCTYPE html>
+      const bakPath = path.join(__dirname, "index.html.bak");
+      const indexPath = path.join(__dirname, "index.html");
+
+      if (fs.existsSync(bakPath)) {
+        // 恢复备份文件
+        fs.copyFileSync(bakPath, indexPath);
+        console.log("[RECOVER] 已从 index.html.bak 恢复旧页面，网站内容保持不变。");
+      } else if (fs.existsSync(indexPath)) {
+        console.log("[RECOVER] 旧页面文件已存在且无备份，保留现有 index.html。");
+      } else {
+        // 连旧页面都没有，生成一个简单占位页面
+        const fallbackHTML = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -731,13 +1034,14 @@ async function main() {
   </div>
 </body>
 </html>`;
-      fs.writeFileSync(indexPath, fallbackHTML, "utf-8");
-      console.log("[RECOVER] 已创建占位页面，等待下次 API 采集成功。");
-    }
+        fs.writeFileSync(indexPath, fallbackHTML, "utf-8");
+        console.log("[RECOVER] 已创建占位页面，等待下次 API 采集成功。");
+      }
 
-    // 无论哪种恢复方式，都退出（不要覆盖成功页面）
-    console.log("[DONE] 容错处理完成，退出。");
-    process.exit(0);
+      // 无论哪种恢复方式，都退出（不要覆盖成功页面）
+      console.log("[DONE] 容错处理完成，退出。");
+      process.exit(0);
+    }
   }
 
   // 如果 API 返回空数据，也视为失败
@@ -762,6 +1066,11 @@ async function main() {
   // 写入新的 index.html
   fs.writeFileSync(indexPath, html, "utf-8");
   console.log("[SUCCESS] 已生成新的 index.html！");
+
+  // 同时生成 SEO 辅助文件，方便搜索引擎收录
+  fs.writeFileSync(path.join(__dirname, "sitemap.xml"), generateSitemap(), "utf-8");
+  fs.writeFileSync(path.join(__dirname, "robots.txt"), generateRobots(), "utf-8");
+  console.log("[SUCCESS] 已生成 sitemap.xml 和 robots.txt");
 
   // 输出统计信息
   console.log("========================================");
