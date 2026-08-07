@@ -178,7 +178,6 @@ function generateProductCard(item, index) {
   const originalPrice = parseFloat(item.itemprice || item.original_price || 0).toFixed(2);
   const couponPrice = parseFloat(item.coupon_price || item.discount_price || item.price || 0).toFixed(2);
   const sales = parseInt(item.sales || item.sales_num || item.volume || 0, 10);
-  const commissionRate = parseFloat(item.commission_rate || 0).toFixed(1);
   const couponMoney = parseFloat(item.coupon_money || 0).toFixed(2);
   const couponLink = item.coupon_link || item.couponurl || item.activity_url || "";
   const itemId = item.itemid || item.goods_id || "";
@@ -230,8 +229,7 @@ function generateProductCard(item, index) {
                 <span class="product-sales">已售 ${formatSales(sales)}</span>
               </div>
               <div class="product-extra">
-                <span class="product-commission">佣金 ${commissionRate}%</span>
-                ${couponMoney > 0 ? `<span class="product-coupon">立省 ¥${couponMoney}</span>` : ""}
+                ${couponMoney > 0 ? `<span class="product-coupon">立省 ¥${couponMoney}</span>` : `<span class="product-commission">今日特惠</span>`}
               </div>
               <div class="product-actions">
                 <a class="buy-btn" href="${promUrl || '#'}" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
@@ -271,6 +269,8 @@ function generateHTML(products) {
   <meta property="og:description" content="今日限时秒杀，大额隐藏优惠券，淘宝/拼多多/唯品会内部高佣优惠券汇总，每日更新精选超值商品。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_CN">
+  ${process.env.BAIDU_VERIFY_CODE ? `<meta name="baidu-site-verification" content="${process.env.BAIDU_VERIFY_CODE}">` : ""}
+  ${process.env.BING_VERIFY_CODE ? `<meta name="msvalidate.01" content="${process.env.BING_VERIFY_CODE}">` : ""}
   <title>今日限时秒杀 - 大额隐藏优惠券 | 每日更新</title>
   <style>
     /* ===== 全局重置 ===== */
@@ -716,8 +716,8 @@ function generateHTML(products) {
         <span class="label">今日精选</span>
       </div>
       <div class="stat-item">
-        <span class="num">${products.filter(p => parseFloat(p.commission_rate || 0) >= 50).length}</span>
-        <span class="label">超高佣商品</span>
+        <span class="num">3</span>
+        <span class="label">每日更新</span>
       </div>
       <div class="stat-item">
         <span class="num">${getFutureDate(3)}</span>
@@ -741,12 +741,12 @@ function generateHTML(products) {
       <span>✔ 限时秒杀</span>
       <span>✔ 大额隐藏券</span>
       <span>✔ 正品保障</span>
-      <span>✔ 自买省钱 · 分享赚钱</span>
+      <span>✔ 自买省钱 · 分享省钱</span>
     </div>
 
     <!-- 分享条 -->
     <div class="share-bar">
-      <strong>💬 分享给好友，好友下单你赚佣金</strong>
+      <strong>💬 把好价分享给好友，TA 也能领券省钱</strong>
       <button class="share-btn" data-share="qq">QQ 分享</button>
       <button class="share-btn" data-share="weibo">微博分享</button>
       <button class="share-btn" data-share="copy">复制链接</button>
@@ -769,7 +769,7 @@ function generateHTML(products) {
 
     <!-- 分页提示 -->
     <div class="info-bar" style="margin-top:24px;justify-content:center;">
-      <span>💡 点击「一键复制口令」即可复制推广链接或淘口令，分享好友购买可获得佣金</span>
+      <span>💡 点击「复制口令」，打开对应 APP 自动领券，下单立减更省钱</span>
     </div>
 
   </div>
@@ -958,7 +958,16 @@ function generateHTML(products) {
     })();
   </script>
 
-  <!-- ===== 百度统计（可选：如需统计请在此添加代码） ===== -->
+  <!-- ===== 百度统计（配置 BAIDU_TONGJI_ID 后自动启用） ===== -->
+  ${process.env.BAIDU_TONGJI_ID ? `<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?${process.env.BAIDU_TONGJI_ID}";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>` : ""}
 
 </body>
 </html>`;
