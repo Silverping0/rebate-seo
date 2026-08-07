@@ -67,6 +67,10 @@ jobs:
           PID_TAOBAO: ${{ secrets.PID_TAOBAO }}
           PID_PDD: ${{ secrets.PID_PDD }}
           PID_VIP: ${{ secrets.PID_VIP }}
+          # 百度/必应收录验证与百度统计（配置后自动注入页面）
+          BAIDU_VERIFY_CODE: ${{ secrets.BAIDU_VERIFY_CODE }}
+          BING_VERIFY_CODE: ${{ secrets.BING_VERIFY_CODE }}
+          BAIDU_TONGJI_ID: ${{ secrets.BAIDU_TONGJI_ID }}
           # 仓库信息（用于生成 canonical 链接）
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
