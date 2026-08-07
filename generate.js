@@ -90,8 +90,13 @@ Sitemap: ${base}/sitemap.xml
 /**
  * 生成 20 个示例商品（仅用于本地演示模式，正式环境由 API 提供）
  */
+function demoImage(label, color) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="400" height="300" fill="${color}"/><text x="50%" y="50%" fill="#ffffff" font-size="42" font-weight="bold" text-anchor="middle" dominant-baseline="central">${label}</text></svg>`;
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+
 function getDemoProducts() {
-  return [
+  const raw = [
     { title: "夏季冰丝防晒衣 轻薄透气 大额隐藏优惠券", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo1", itemprice: "99.00", coupon_price: "29.90", sales: 28600, commission_rate: 50, shop_type: "1", coupon_link: "https://s.click.taobao.com/demo-link" },
     { title: "蓝牙耳机无线入耳式 降噪长续航 限时秒杀", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo2", itemprice: "199.00", coupon_price: "59.00", sales: 45600, commission_rate: 45, shop_type: "2", coupon_link: "https://mobile.yangkeduo.com/demo-link" },
     { title: "纯棉T恤男短袖 夏季新款 圆领休闲百搭", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo3", itemprice: "129.00", coupon_price: "39.90", sales: 13200, commission_rate: 40, shop_type: "1", coupon_link: "https://s.click.taobao.com/demo-link" },
@@ -113,6 +118,12 @@ function getDemoProducts() {
     { title: "桌面收纳盒 化妆品整理 卧室宿舍实用", itempic: "https://via.placeholder.com/400x300/ffebee/ff4757?text=Demo19", itemprice: "49.00", coupon_price: "15.90", sales: 43500, commission_rate: 32, shop_type: "1", coupon_link: "https://s.click.taobao.com/demo-link" },
     { title: "运动水壶大容量 健身吨吨桶 耐高温", itempic: "https://via.placeholder.com/400x300/fff7e6/fa8c16?text=Demo20", itemprice: "99.00", coupon_price: "29.90", sales: 18700, commission_rate: 37, shop_type: "2", coupon_link: "https://mobile.yangkeduo.com/demo-link" }
   ];
+  return raw.map((d, i) => ({
+    ...d,
+    itempic: demoImage("DEMO " + String(i + 1).padStart(2, "0"), i % 2 === 0 ? "#ff8a80" : "#ffd180"),
+    coupon_link: "#",
+    demo: true
+  }));
 }
 
 // ==================== 步骤1：调用好单库 API 采集商品 ====================
@@ -232,8 +243,8 @@ function generateProductCard(item, index) {
                 ${couponMoney > 0 ? `<span class="product-coupon">立省 ¥${couponMoney}</span>` : `<span class="product-commission">今日特惠</span>`}
               </div>
               <div class="product-actions">
-                <a class="buy-btn" href="${promUrl || '#'}" target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
-                <button class="copy-btn" data-link="${promUrl.replace(/"/g, "&quot;")}" data-title="${title.replace(/"/g, "&quot;")}">
+                <a class="buy-btn" href="${promUrl || '#'}"${item.demo ? ' data-demo="1"' : ""} target="_blank" rel="nofollow noopener">🛒 立即抢购</a>
+                <button class="copy-btn"${item.demo ? ' data-demo="1"' : ""} data-link="${promUrl.replace(/"/g, "&quot;")}" data-title="${title.replace(/"/g, "&quot;")}">
                   📋 复制口令
                 </button>
               </div>
@@ -254,6 +265,7 @@ function generateHTML(products) {
   const productCards = products
     .map((item, i) => generateProductCard(item, i + 1))
     .join("\n");
+  const isDemo = products.some((p) => p.demo);
 
   // ==================== HTML 模板 ====================
   return `<!DOCTYPE html>
@@ -703,7 +715,7 @@ function generateHTML(products) {
 
   <!-- ===== 顶部通知条 ===== -->
   <div class="top-bar">
-    <span>⚡ 限时秒杀进行中 · 优惠券数量有限，先到先得！</span>
+    <span>${isDemo ? "⚡ 当前为示例商品 · 正式商品恢复后自动更新" : "⚡ 限时秒杀进行中 · 优惠券数量有限，先到先得！"}</span>
   </div>
 
   <!-- ===== 页面头部 ===== -->
@@ -955,6 +967,14 @@ function generateHTML(products) {
           if (grid) grid.scrollIntoView({ behavior: "smooth" });
         });
       }
+
+      // 示例商品：点击时提示，不跳转到失效链接
+      document.querySelectorAll("[data-demo='1']").forEach(function(el) {
+        el.addEventListener("click", function(e) {
+          e.preventDefault();
+          showToast("示例商品，正式商品将在数据源恢复后自动更新", false);
+        });
+      });
     })();
   </script>
 
