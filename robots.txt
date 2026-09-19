@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://Silverping0.github.io/rebate-seo/sitemap.xml
